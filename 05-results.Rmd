@@ -1,1 +1,550 @@
 # Results
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+```{r message=FALSE}
+library(readr)
+library(tidyverse)
+library(ggmap)
+library(maptools)
+library(maps)
+library(tidyverse)
+library(sf)
+library(leaflet)
+library(viridis)
+library(mapview)
+library(sp)
+library(rbokeh)
+library(threejs)
+library(googleway)
+library(reshape2)
+library(ggmosaic)
+library(jcolors)
+library(ggthemes)
+library(readr)
+library(tidyverse)
+library(visNetwork)
+library(data.table)
+```
+
+
+## Gender
+
+In the following section, we explore the social patterns and interests of our cohort by gender. Though this analysis we hoped to answer a few questions, namely: Are men and women interested in the same industries and research areas? And how does gender influence the way that we congregate and collaborate within the Data Science Institute? Note, that survey respondees were given the option to identify as gender non-binary or “prefer not to say”. Because no participant selected these options, we were able to perform our gender analysis from the strict bipartition of male and female.
+
+### How are our interests related, if at all, to our gender?
+
+
+#### Introduction:
+
+
+In our analysis of the aspiring data scientists in our class by gender, we wanted to identify if any differences existed in our professional and academic interests. In our survey, we asked participants to select the industry they would most like to work in as well as the field they most want to study. Our first heatmap analyzes the relationship between industry and academic background faceted on gender. The second heatmap explores a similar question on one’s preference in a data science research topic.
+
+
+
+```{r message=FALSE}
+#setwd("C:/Users/Shreyas Jadhav/Documents")
+DSI <-fread("https://storage.googleapis.com/edavproject/dsi1.csv")
+DSI <- DSI[,2:23]
+colnames(DSI)[2]<-"Name"
+colnames(DSI)[6]<-"Background"
+colnames(DSI)[7]<-"Institute"
+#register_google(key = 'AIzaSyCiEPynt-9Dbz0hCywpHJ_vR2lNA28Abc8')
+#api_key <- 'AIzaSyCiEPynt-9Dbz0hCywpHJ_vR2lNA28Abc8'
+```
+
+```{r message=FALSE}
+register_google(key = 'AIzaSyCiEPynt-9Dbz0hCywpHJ_vR2lNA28Abc8')
+api_key <- 'AIzaSyCiEPynt-9Dbz0hCywpHJ_vR2lNA28Abc8'
+x <- DSI$Institute[0:122]
+
+#temp1 <- geocode(x)
+#temp1$Institute <- DSI$Institute
+#temp1[1:5,]
+#temp1 <- as.data.frame(temp1[,c(1,2)])
+```
+
+```{r message=FALSE}
+
+#Store co-ordinates and lat long values in another data set.
+#  DSI$longitude <- temp1$lon
+#  DSI$latitude <- temp1$lat
+#  DSI$co_ord <- paste(DSI$latitude,",",DSI$longitude)
+#  unique_institutes <- as.data.frame(table(DSI$co_ord))
+#  colnames(unique_institutes)[1]<- 'co_ord'
+#  tempo <- as.data.frame(DSI[,c("Institute", "co_ord")])
+#  y <- merge( x = unique_institutes, y = tempo, by = "co_ord", all = TRUE)
+#  
+#  df_split<- strsplit(as.character(y$co_ord), split=",")
+#  
+#  y <- transform(y, latitude= sapply(df_split, "[[", 1),longitude= sapply(df_split, "[[", 2))
+#  y$latitude <- as.numeric(as.character(y$latitude))
+#  y$longitude <- as.numeric(as.character(y$longitude))
+# 
+# write.csv(y, "latlong.csv")
+
+# #Reverse Geo-coding to get the countries from lat long values and then provide classification for previous degree in USA/NON-USA
+# 
+# DSI1 <- DSI
+# 
+# result <- do.call(rbind,
+#                   lapply(1:nrow(temp1),
+#                          function(i)revgeocode(as.numeric(temp1[i,1:2]))))
+# dum1 <- cbind(temp1,result)
+# colnames(dum1)[3]<-"Address"
+# temp <- gsub(".*\\s", "", as.character(dum1$Address))
+# dum1$cc <- temp
+# colnames(dum1)[4]<-"Country Code"
+# dum1 <- dum1[,c(1,2,4)]
+# dum1$dom <- grepl("[[:digit:]]", dum1$`Country Code`)
+# dum1$`Country Code` = ifelse(grepl(TRUE,dum1$dom),"China",dum1$`Country Code`)
+# dum1$dom = ifelse(grepl("USA",dum1$`Country Code`),"USA","NON-USA")
+# colnames(dum1)[4]<-"Is USA?"
+# DSI1$Country_Code <- dum1$`Country Code`
+# DSI1$Is_USA <- dum1$`Is USA?`
+# 
+# 
+# 
+# #Bifurcate different distinct academic backgrounds into 3 groups namely Computer based, Math and Stats based and Non-Computer ad Math based
+# 
+# DSI1$Background <- tolower(DSI1$Background)
+# 
+# DSI1$Back = ifelse(grepl("(analytics|comp|data)",DSI1$Background),"Computer","Non-Comp_Math")
+# 
+# DSI1$Back = ifelse(grepl("(statis|math|actuarial)",DSI1$Background)&(DSI1$Back != "Computer"),"Maths and Stats",DSI1$Back)
+# 
+# 
+# 
+# # Grouping the response for the statement: "On a scale from 1 (I'm chillin'!) to 10 (I work/study all the time!) describe your work-life balance"" into 4 bins for simplification.
+# colnames(DSI1)[15] <- "Work Rate"
+# DSI1$`Work Rate`<- as.character(DSI1$`Work Rate`)
+#  
+#  
+# DSI1$Bins = ifelse(grepl("(1|2|3)",DSI1$`Work Rate`),"Chill the most",0)
+# DSI1$Bins = ifelse(grepl("(4|5)",DSI1$`Work Rate`),"Chill more, work less",DSI1$Bins)
+# DSI1$Bins = ifelse(grepl("(6|7)",DSI1$`Work Rate`),"Work more, chill less",DSI1$Bins)
+# DSI1$Bins = ifelse(grepl("(8|9|10)",DSI1$`Work Rate`),"Work a lot",DSI1$Bins)
+# 
+# 
+# 
+# write.csv(DSI1,"DSI1.csv")
+
+
+```
+
+
+
+
+#### Analysis
+
+
+##### Heatmap of Industries:
+
+```{r message=FALSE}
+DSI1 <- fread("https://storage.googleapis.com/edavproject/dsi2.csv")
+DSI1 <-DSI1[,2:30]
+
+```
+
+
+
+```{r message=FALSE}
+mydata_1 <- as.data.frame(DSI1[,c(4,18)])
+colnames(mydata_1)[2] <- "Industry"
+colnames(mydata_1)[1] <- "Sex"
+
+
+mydata_new_1 <- mydata_1 %>% group_by(Sex,Industry) %>%summarize(count = n()) %>% ungroup()
+
+mydata_new_1 <- mydata_new_1%>%group_by(Sex)%>%mutate(prop=round((count/sum(count)),digits = 2))%>%ungroup()
+
+
+
+theme_heat <- theme_classic() +
+  theme(axis.line = element_blank(),
+        axis.ticks = element_blank())
+
+
+p9 <- ggplot(mydata_new_1, aes(x = Sex , y = Industry)) +
+  geom_tile(aes(fill = prop), color = "white") +
+  coord_fixed() + theme_heat + 
+
+
+      geom_text(aes(label = round(prop, 2)), 
+                 color = "white", size = 3) +
+      scale_color_brewer(palette = "Blues", direction = -1) +
+      # formatting
+    labs(title = "How does sex affect \n choice of industry?") +
+    xlab("Sex") + ylab("Choice of Industry") + 
+      theme(plot.title = element_text(face = "bold")) +
+      theme(plot.subtitle = element_text(face = "bold", color = "grey35")) +
+      theme(plot.caption = element_text(color = "grey68"))+ 
+      theme(axis.text.x = element_text(size=10,angle=90))+ 
+      guides(fill=guide_legend(title="Proportion"))
+    
+
+
+p9
+
+```
+
+Irregardless of gender, big tech and finance, were the industries that garnered the most interest. However, we found that while more women showed want to get into consulting more men showed seemed more enthusiastic about start-ups. A priori, we figured that more men would be interested in sports analytics than women, but the results from our survey reflect an equivalence in interest. 
+
+##### Heatmap of Research Interests: 
+
+```{r message=FALSE} 
+
+mydata_2 <- as.data.frame(DSI1[,c(4,19)])
+colnames(mydata_2)[2] <- "DS_Subject"
+colnames(mydata_2)[1] <- "Sex"
+
+
+mydata_2$DS_Subject_1 = ifelse(grepl("(AI|Computer Vision|Data Analytics|Machine Learning|NLP|Data Vizualization|Deep Leanring)",mydata_2$DS_Subject),mydata_2$DS_Subject,"Other")
+
+mydata_2$DS_Subject_1 = ifelse(grepl("(NLP/ML)",mydata_2$DS_Subject_1),"Machine Learning",mydata_2$DS_Subject_1)
+
+mydata_2$DS_Subject <- mydata_2$DS_Subject_1 
+mydata_2 <- as.data.frame(mydata_2[,c(1,2)])
+
+
+
+
+
+mydata_new_2 <- mydata_2 %>% group_by(Sex,DS_Subject) %>%summarize(count = n()) %>% ungroup()
+
+mydata_new_2 <- mydata_new_2%>%group_by(Sex)%>%mutate(prop=round((count/sum(count)),digits = 2))%>%ungroup()
+
+
+
+
+
+theme_heat <- theme_classic() +
+  theme(axis.line = element_blank(),
+        axis.ticks = element_blank())
+
+
+p10 <- ggplot(mydata_new_2, aes(x = Sex , y = DS_Subject)) +
+  geom_tile(aes(fill = prop), color = "white") +
+  coord_fixed() + theme_heat+
+
+
+      geom_text(aes(label = round(prop, 2)), 
+                 color = "white", size=3) +
+      scale_color_brewer(palette = "Blues", direction = -1) +
+      labs(title = "How does sex affect \n favourite research topic?") +
+    xlab("Sex") + ylab("Favourite research topics")+ 
+             
+      theme(plot.title = element_text(face = "bold")) +
+      theme(plot.subtitle = element_text(face = "bold", color = "grey35")) +
+      theme(plot.caption = element_text(color = "grey68"))+ 
+      theme(axis.text.x = element_text(size=10,angle=90)) + 
+      guides(fill=guide_legend(title="Proportion"))
+
+p10
+```
+
+Overall we notice that the interest in various data science topics is uniformly distributed except in the case of Machine Learning and Data Analytics. We notice that Machine Learning is favored more by men while Data Analytics is favored more by women. This higher proportion for Data Analytics in surveyed women may be related to their higher interest in consulting (see previous heatmap).
+
+
+
+### How does gender influence the way we socialize?
+
+
+#### Introduction: 
+
+Data Science, like many other STEM fields, is overwhelmingly male. This begs the question: Is data science becoming an all-boys club? We asked survey participants to select at most five people with whom they interact the most within our Exploratory Data Analysis and Visualization class. Using this data, we were able to see the explore the patterns in the social interactions among our classmates.
+
+
+#### Analysis
+
+
+##### Horizontal Stacked Bar Chart:
+
+```{r message=FALSE}
+DSI4 <-fread("https://storage.googleapis.com/edavproject/dsi.csv")
+class <- data.frame(Name = 1:122)
+  
+df <- select(DSI4,`Name`,
+             `DSI-er #1`, `DSI-er #2`, `DSI-er #3`, `DSI-er #4`, `DSI-er #5`,
+             `What gender do you identify with?`,
+             `Country_Code`, `I am most interested in...`,`In the Industry of Data Science I am MOST interested in going into..`)
+
+colnames(df) <- c("Name","F1","F2","F3","F4","F5","Group","Title1","Title2","Title3")
+
+blank <- data.frame(id = setdiff(class$Name, df$Name),
+                    group = "No Response",
+                    title = "This person did not fill out the survey")
+
+fill <- data.frame(id = df$Name,
+                   group = df$Group,
+                   title = paste("<p>Undergrad Country:", df$Title1,"<br>Academic Interest:", df$Title2,"<br>Professional Interest:", df$Title3, "</p>"))
+
+gender_df <- select(df, "Name", "Group")
+colnames(gender_df) <- c("Friend", "Friend Gender")
+trans_df <- gather(df, key = "Status", value = "Friend", -Name, -Group) %>% select("Name","Group","Friend")
+colnames(trans_df) <- c("Name", "Gender", "Friend")
+conn_df <- merge(trans_df, gender_df, by="Friend", type="left") %>% select("Gender","Friend Gender")
+
+ggplot(conn_df, aes(Gender, fill = `Friend Gender`)) +
+  geom_bar(position = "fill") +
+  coord_flip() +
+  scale_fill_manual(values=c("pink","lightblue")) +
+  labs(x = "Respondant Gender", y="Proportion of Connections",title="Social Connections by Gender") 
+```
+
+
+This horizontal stacked bar chart shows that men and women more often listed people of their same gender when reflecting on their social circle. In a perfect world, these bars would be split directly down the middle.
+
+
+
+
+##### Social Network Graph
+
+
+```{r message=FALSE}
+
+
+
+
+ nodes <- rbind(blank, fill)
+ nodes$label <- ""
+ 
+ trans_df <- gather(df, key = "Status", value = "Friend", -Name, -Group, -Title1, -Title2) %>% select(Name, Friend)
+ 
+ edges <- data.frame(from = trans_df$Name, to = trans_df$Friend)
+ 
+ visNetwork(nodes, edges, height='1000px', width="100%") %>%
+   visEdges(arrows = "to") %>%
+   visOptions(highlightNearest=list(enabled=T, hover=T,degree=1)) %>%
+   visGroups(groupname = "No Response", color = 'lightgray') %>%
+   visGroups(groupname = "Female", color = 'pink') %>%
+   visGroups(groupname = "Male", color = 'lightblue') %>%
+   visLegend()
+```
+
+
+The following applet is an interactive visualization of the social connections within our Exploratory Data Analysis and Visualization class. Each node represents a person within our class. Men are light blue and women are pink. The gray nodes are people who did not fill out the survey. A directed edge from node A to node B represents person A listing person B as social connection in their survey. The nodes that are disconnected from the large network were people who did not list any connections. By moving the cursor over a node, the user can see the country where the person completed their undergraduate education, as well as professional and academic interests. In addition, the user is able to drag nodes to get a better sense of the network structure. Be patient! The network takes some time to load.
+
+
+
+## Academic Background
+
+
+### How are our interests related, if at all, to our academic background?
+
+
+#### Introduction:
+
+In this section, we explore the same question as in this last section; however, this time we look at the responses from the lense of academic background. Do students of a particular background tend to have similar interests with respect to industry and research interests?
+
+#### Analysis: 
+
+
+##### Grouped Bar Chart (1):
+
+```{r message=FALSE}
+
+hello_1 <- as.data.frame(DSI1[,c(28,18)])
+colnames(hello_1)[2] <- "Industry"
+
+temp_2 <- hello_1 %>% group_by(Back, Industry) %>% summarize(count =n()) %>% ungroup()
+
+temp_2<- temp_2 %>%group_by(Back)%>%mutate(prop=round((count/sum(count)),digits= 2)*100)%>%ungroup()
+
+
+add_row <- data.frame(Back = c("Maths and Stats","Maths and Stats","Non-Comp_Math"),
+                      Industry = c("Healthcare","Government","Healthcare"),
+                      count = c(0,0,0),
+                      prop = c(0.0,0.0,0.0))
+temp_2 <- rbind(temp_2,add_row)
+
+p7 <- ggplot(data=temp_2, aes(x=Back, y=prop, fill=Industry)) + 
+     geom_bar(position = 'dodge', stat='identity') +
+  scale_y_continuous(breaks = seq(0,100,10), limits=c(0,80))+
+      geom_text(aes(label=prop), position=position_dodge(width=0.9), vjust=-0.25)+
+   labs(title = "Preferred industry by academic background")+ xlab("Prev. Degree Country")+ ylab("Percentage")+
+  theme_economist()
+
+p7
+```
+
+
+Across background big tech firms reigns supreme as the most popular industry for post-graduation. Perhaps, a majority of the students here are pursuing a Master’s degree so that they can break into the tech industry. However, curiously, survey participants with a Mathematics/Statistics background appear to have a higher affinity for the opportunities in the financial sector. Additionally, of those who responded, only people with a history in computing reported an interest in healthcare opportunities.
+
+
+##### Grouped Bar Chart (2):
+
+```{r message=FALSE}
+
+hello_2 <- as.data.frame(DSI1[,c(28,19)])
+colnames(hello_2)[2] <- "DS_Subject"
+hello_2$DS_Subject_1 = ifelse(grepl("(AI|Computer Vision|Data Analytics|Machine Learning|NLP|Data Vizualization|Deep Leanring)",hello_2$DS_Subject),hello_2$DS_Subject,"Other")
+
+hello_2$DS_Subject_1 = ifelse(grepl("(NLP/ML)",hello_2$DS_Subject_1),"Machine Learning",hello_2$DS_Subject_1)
+
+hello_2$DS_Subject <- hello_2$DS_Subject_1 
+hello_2 <- as.data.frame(hello_2[,c(1,2)])
+
+temp_3 <- hello_2 %>% group_by(Back, DS_Subject) %>% summarize(count =n()) %>% ungroup()
+
+temp_3<- temp_3 %>%group_by(Back)%>%mutate(prop=round((count/sum(count)),digits= 2)*100)%>%ungroup()
+
+add_row <- data.frame(Back = c("Computer","Non-Comp_Math"),
+                      DS_Subject = c("AI","Data Vizualization"),
+                      count = c(0,0),
+                      prop = c(0.0,0.0))
+temp_3 <- rbind(temp_3,add_row)
+
+
+
+p8 <- ggplot(data=temp_3, aes(x=Back, y=prop, fill=DS_Subject)) + 
+     geom_bar(position = 'dodge', stat='identity') +
+  scale_y_continuous(breaks = seq(0,100,10), limits = c(0,60))+
+      geom_text(aes(label=prop), position=position_dodge(width=0.9), vjust=-0.25)+ 
+  labs(title = "Favourite Research Topic by academic background")+ xlab("Prev. Degree Country")+ ylab("Percentage")+
+   theme_economist()
+
+p8
+```
+
+As previously mentioned, the field of data science is primarily comprised of principles from computer science and mathematics/statistics. With this in mind, it comes as no surprise that the greater population from these majors prefers to study topics in Machine Learning. While, when we observe the responses from those whose academic background is outside of these areas, the research topic with the most draw is Natural Language Processing (NLP). 
+
+
+## Students w/ Previous Degree in US/International
+
+
+### How does the location of one’s previous study affect how they are dealing with the pressures of attending graduate school in NYC?
+
+
+#### Introduction: 
+
+Adjusting to life in New York City can be difficult for anyone. But imagine having to make that adjustment while matriculating through a graduate-level curriculum at an Ivy League institution! With this in mind, we included a couple likert questions in our survey to gauge how well students were adjusting. How do students who have previously studied in the United States fair alongside their international peers with regard to life in the city and maintaining a healthy work-life balance?
+
+##### Stacked Bar Chart (Background breakdown by prior institution):
+
+```{r}
+
+tempo <- as.data.frame(DSI1[,c(27,28)]) 
+tell_2 <- tempo %>% group_by(Is_USA, Back) %>% summarize(count =n()) %>% ungroup()
+tell_2 <- tell_2 %>%group_by(Is_USA)%>%mutate(prop=round((count/sum(count)),digits= 3)*100)%>%ungroup()
+
+
+
+p1 <- ggplot(tell_2, aes(x = Is_USA, y = prop, fill = Back, label = prop)) +
+  geom_bar(stat = "identity") +
+  geom_text(aes(label=paste(format(prop),"%")),size = 3, position = position_stack(vjust = 0.5), color = "black")+
+  labs(title = "Academic Background by the country of prev. degree")+ xlab("Prev. Degree Country")+ ylab("Percentage")+
+  scale_y_continuous(breaks = seq(0,100,10), limits=c(0,100))+
+  #scale_colour_colorblind()+
+  scale_fill_brewer(palette="Set2", name = "Academic Background")+
+  theme_economist()
+p1
+```
+
+To provide some background information and frame the discussion and analysis in this section, the stacked bar chart above visualizes the breakdown of academic background of the surveyed DSI students grouped by the location of their prior institution. Notice that a greater proportion of students with a Mathematics/Statistics background came from an institution in the United States. With respect to the surveyed students who came from an international university, we observed a greater proportion of respondents with a computing background.
+
+
+
+#### Analysis
+
+
+##### I love New York City:
+
+
+```{r message=FALSE}
+
+
+y <- as.data.frame(DSI1[,14])
+colnames(y)[1] <- "NY"
+y$Measure <- DSI1$Is_USA
+
+y1 <- as.data.frame(DSI1[,16])
+colnames(y1)[1] <- "UnderSt"
+y1$Measure1 <- DSI1$Is_USA
+
+
+
+
+ 
+tell <- y %>% group_by(Measure,NY) %>% summarize(count = n()) %>% ungroup()
+tell1 <- y1 %>% group_by(Measure1,UnderSt) %>% summarize(count = n()) %>% ungroup()
+
+like_1 <- dcast(tell, Measure ~ NY)
+like_1[1,6] <- 0
+
+like_2 <- dcast(tell1,Measure1 ~ UnderSt) 
+
+
+like_1$Measure <- fct_relevel(like_1$Measure, "USA", "NON-USA") 
+levels(like_1$Measure)
+
+
+
+p4<- HH::likert(Measure ~ "Strongly Disagree" + "Disagree" + "Neutral" + "Agree" + "Strongly Agree",  
+           like_1,
+           as.percent = TRUE,
+           ReferenceZero = 3, 
+           positive.order = TRUE,
+           xlim=c(-40,-20,0,20,40,60,80,100),
+           main = "Responses to :'I love New York'",
+           xlab = "Percentage of students",
+           ylab = "Prev. Degree Country"
+)
+p4
+```
+
+A priori, we would have expected American students, being native to the country, to have a higher affinity for life in the city. However, our data shows that the opposite is actually the case. Responses from  students who studied internationally were reasonably skewed to “Strongly Agree” with absolutely no students in the group answering “Strongly Disagree”.
+
+##### Chill Mosaic:
+
+```{r message= FALSE, fig.width = 6 }
+
+DSI1$Bins <- fct_relevel(DSI1$Bins,"Work a lot","Work more, chill less","Chill more, work less","Chill the most")
+
+p6 <- ggplot(DSI1) + 
+  geom_mosaic(
+    aes(x=product(Is_USA), # cut from right to left 
+        fill=Bins))+
+        labs(x="Prev. Degree Country", y='Responses on Work - Chill \n balance question',
+       title='Work - Life Balance Response  based on \n prev. degree country')+
+      theme(legend.position="none")
+     
+p6   
+```
+
+We found overall that students who have done their previous education in the US are “chillin’” somewhat more than students coming from overseas. Why would this be? Perhaps, domestic students are more accustomed to the culture of American institutions. Another possible explanation for this disparity could be that credit-hour and work-study requirements are stricter for international students.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
