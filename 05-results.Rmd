@@ -402,6 +402,7 @@ p4
 
 A priori, we would have expected American students, being native to the country, to have a higher affinity for life in the city. However, our data shows that the opposite is actually the case. Responses from  students who studied internationally were reasonably skewed to “Strongly Agree” with absolutely no students in the group answering “Strongly Disagree”.
 
+
 ##### Chill Mosaic:
 
 ```{r message= FALSE, fig.width = 6 }
@@ -419,7 +420,9 @@ p6 <- ggplot(DSI1) +
 p6   
 ```
 
-We found overall that students who have done their previous education in the US are “chillin’” somewhat more than students coming from overseas. Why would this be? Perhaps, domestic students are more accustomed to the culture of American institutions. Another possible explanation for this disparity could be that credit-hour and work-study requirements are stricter for international students.
+We found overall that students who have done their previous education in the US are “chillin’” somewhat more than students coming from overseas. Why would this be? Perhaps, domestic students are more accustomed to the culture of American institutions. Another possible explanation for this disparity could be that credit-hour and work-study requirements are stricter for students with previous degress in international institutes.
+
+
 
 
 
