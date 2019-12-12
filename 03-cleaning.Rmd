@@ -1,1 +1,49 @@
 # Data transformation
+
+The data cleaning process for some our visualizations was rather effortless. With respect to building the social network graph, the class roster was hard-coded into a dropdown selection menu for those related questions so that we could totally avoid capitalization and spelling errors with student’s names. This is not to say, however, that our non-opened-ended questions didn’t produce any noise. For example, one survey respondee self-identified as a 99-year-old in the “Who Are We?” section of questioning. Not only was this an outlier, but this was also a nonsensical answer that we knew we could throw out right away. 
+
+The bulk of the heavy lifting with data cleaning and transformation came with the open-ended survey response questions. How would we transform or “bin” the raw text of survey answers in some uniform manner so that we could visualize them without compromising the integrity of their meaning? 
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+## Location of Undergraduate Institution
+
+Typically when formulating a survey, one of the first questions a surveyor almost thinks of automatically is that of nationality or ethnicity. However, with the line of questioning that we had in mind, Professor Robbins advised that this could be a slippery slope that may perpetuate racial stereotypes/bias. Therefore, we decided to slightly shift our grouping mechanism to students who had or hadn’t previously done their education in the United States. To do this, on the survey we asked participants for the name of the institution where they last studied before coming to Columbia. Then, with the aid of the Google Maps API, we used the raw text entered to scrape the latitude and longitude coordinates from the web and bipartition students into USA/NON-USA categories. 
+
+```{r message=FALSE}
+library(readr)
+library(data.table)
+transform2 <-fread("https://storage.googleapis.com/edavproject/transform2.csv")
+transform2[,2:6]
+```
+
+
+## Binning Academic Background
+
+As previously mentioned, Colubmia admits students from an exceptionally wide range of backgrounds. In fact, upon synthesizing all of the majors with the same type, we found that the DSI 2020 cohort represents a whopping 60 unique majors! While we believe that representing this diversity is important, we needed to find a more feasible way for grouping students that didn’t spread our data too thin. Being that Data Science is supremely comprised of principles from Mathematics/Statistics and Computer Science, it made the most sense to us to group students whose background includes these disciplines and to simply bin all the rest together. We found that by sectioning survey participants in this way, each of the three groups had a reasonable number of students. Lastly, with regard to students who listed a double major in Computer Science and Mathematics, Computer Science was always given priority.
+
+```{r message=FALSE}
+transform1 <-fread("https://storage.googleapis.com/edavproject/transform1.csv")
+transform1[,2:3]
+```
+
+
+## We “Bin” Chillin’
+
+When you ask someone for a rating on a scale of 1-10, what’s the real difference between and rating of 1 and a rating of 2? On this notion, it made sense when visualizing the data from the work-life balance question to group the responses in the following way:
+
+1. Ratings of 1,2, and 3 were binned to the 'Chill the most' class. 
+
+2. Ratings of 4 and 5 were binned to the 'Chill more, work less' class.  
+
+3. Ratings of 6 and 7 were binned to the 'Work more, chill less' class.
+
+4. Ratings of 8,9, and 10 were binned to the 'Work a lot' class.
+
+```{r message=FALSE}
+transform3 <-fread("https://storage.googleapis.com/edavproject/transform3.csv")
+transform3[,2:3]
+```
