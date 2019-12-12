@@ -232,6 +232,8 @@ The following applet is an interactive visualization of the social connections w
 
 
 
+
+
 ## Academic Background
 
 
