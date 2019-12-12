@@ -2,7 +2,7 @@
 
 The data cleaning process for some our visualizations was rather effortless. With respect to building the social network graph, the class roster was hard-coded into a dropdown selection menu for those related questions so that we could totally avoid capitalization and spelling errors with student’s names. This is not to say, however, that our non-opened-ended questions didn’t produce any noise. For example, one survey respondee self-identified as a 99-year-old in the “Who Are We?” section of questioning. Not only was this an outlier, but this was also a nonsensical answer that we knew we could throw out right away. 
 
-The bulk of the heavy lifting with data cleaning and transformation came with the open-ended survey response questions. How would we transform or “bin” the raw text of survey answers in some uniform manner so that we could visualize them without compromising the integrity of their meaning? 
+Though, as expected, the bulk of the heavy lifting with regard to data cleaning and transformation came with the open-ended survey response questions. How would we transform or “bin” the raw text of survey answers in some uniform manner so that we could visualize them without compromising the integrity of their meaning? 
 
 ```{r, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
@@ -11,7 +11,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Location of Undergraduate Institution
 
-Typically when formulating a survey, one of the first questions a surveyor almost thinks of automatically is that of nationality or ethnicity. However, with the line of questioning that we had in mind, Professor Robbins advised that this could be a slippery slope that may perpetuate racial stereotypes/bias. Therefore, we decided to slightly shift our grouping mechanism to students who had or hadn’t previously done their education in the United States. To do this, on the survey we asked participants for the name of the institution where they last studied before coming to Columbia. Then, with the aid of the Google Maps API, we used the raw text entered to scrape the latitude and longitude coordinates from the web and bipartition students into USA/NON-USA categories. 
+Typically when formulating a survey, one of the first questions a surveyor almost thinks of automatically is that of nationality or ethnicity. However, with the line of questioning that we had in mind, Professor Robbins advised that this could be a slippery slope that may perpetuate certain racial stereotypes/biases. Therefore, we decided to slightly shift our grouping mechanism to students who had or hadn’t previously done their education in the United States. To do this, on the survey we asked participants for the name of the institution where they last studied before coming to Columbia. Then, with the aid of the Google Maps API, we used the raw text entered to scrape the latitude and longitude coordinates of their institution from the web and bipartition students into USA/NON-USA groups.
 
 ```{r message=FALSE}
 library(readr)
@@ -47,3 +47,7 @@ When you ask someone for a rating on a scale of 1-10, what’s the real differen
 transform3 <-fread("https://storage.googleapis.com/edavproject/transform3.csv")
 transform3[,2:3]
 ```
+
+## Accessibility
+
+When developing the visualizations that you will see in our “Results” section, color schemes were consciously selected that wouldn’t inhibit dissemination of this report to visually impaired readers.
