@@ -50,4 +50,4 @@ transform3[,2:3]
 
 ## Accessibility
 
-When developing the visualizations that you will see in our “Results” section, color schemes were consciously selected that wouldn’t inhibit the dissemination of this report to visually impaired readers.
+When developing the visualizations that you will see in our “Results” section, color schemes were consciously selected that wouldn’t inhibit the dissemination of this report to color vision deficient readers.
