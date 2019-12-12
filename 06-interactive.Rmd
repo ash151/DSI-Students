@@ -1,3 +1,63 @@
 # Interactive component
 
+```{r, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Introduction: 
+
+This interactive map visualizes the global diversity of the academic institutions that are represented in our program. When a point on the map is clicked, a popup will show the name of the university that is represented  by the point and the number of students that hail from it. Use the tools on the right sidebar to scrub over and zoom in on the map for the best views of the data.
+
+```{r message=FALSE}
+library(readr)
+library(tidyverse)
+library(ggmap)
+library(maptools)
+library(maps)
+library(tidyverse)
+library(sf)
+library(leaflet)
+library(viridis)
+library(mapview)
+library(sp)
+library(rbokeh)
+library(threejs)
+library(googleway)
+library(reshape2)
+library(ggmosaic)
+library(jcolors)
+library(ggthemes)
+library(readr)
+library(tidyverse)
+library(visNetwork)
+library(data.table)
+
+y <- fread("https://storage.googleapis.com/edavproject/latlong.csv")
+
+y <- y %>%
+  mutate(popup_label = paste(paste0('<b>Institute: ', Institute, '</b>'),
+                             paste0('Frequency: ', Freq), 
+                             sep = '<br/>'))
+
+pal <- colorFactor(
+  palette =  "Spectral",
+  domain = y$Freq
+)
+
+leaflet(y) %>%
+  setView(0, 0, 1.5) %>%
+  addTiles()%>% addProviderTiles(providers$Esri.NatGeoWorldMap) %>%
+  addCircles(data = y,
+                   lat=~latitude, 
+                   lng=~longitude,
+                   color = ~pal(Freq),
+                   weight = 10,
+                  radius = 10,
+                  fillOpacity = 1,
+                   popup = ~popup_label) %>%
+  addLegend("bottomright", pal = pal, values = ~Freq, 
+            title = "Students Frequency", opacity = 1)
+
+```
+
 

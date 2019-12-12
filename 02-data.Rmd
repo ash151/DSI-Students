@@ -1,2 +1,12 @@
 # Data sources
 
+Columbia University offers one of the few and most rigorous data science programs on the planet. Every year, an exclusive cohort of undergraduates and professionals from a diverse range of backgrounds (art history, mathematics, computer science, etc.) are offered admission to the Data Science Institute (link), where they will typically undergo three semesters of formal education before going on to join the workforce or a doctoral program and solve the world’s most pressing problems with data-driven solutions. With this group that was chosen with the utmost selectivity, we didn’t need to look too hard for a quality source of data.
+
+However, building our survey was no trivial task by any means. In formulating our questionnaire,we developed three categories for our line of questioning in order to achieve the most interesting/useful results.
+
+Who are we? 
+How are we doing?
+Where are we going?
+
+The first category deals with establishing exactly who our cohort is (ex: gender, academic background, prior institution, etc.). These necessary profile questions allow us to potentially identify trends in the data from our bigger questions. The second and third categories involve the aforementioned bigger questions, which include work-life balance, domain areas of interest, and post-graduation intentions. With regard to the survey format, some questions were formatted with a restricted set of answer choices for ease of cleaning; though, others had to remain open-ended. With this in mind, we wondered how would we deal with the likely noise in the data from these questions in particular. How would we parse out useful insights from noise that could come from a number of areas, including spelling/capitalization errors, diversity in answer, and nonsensical/implausible responses?
+
