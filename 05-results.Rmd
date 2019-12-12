@@ -159,8 +159,7 @@ Overall we notice that the interest in various data science topics is uniformly 
 
 #### Introduction: 
 
-Data Science, like many other STEM fields, is overwhelmingly male. This begs the question: Is data science becoming an all-boys club? We asked survey participants to select at most five people with whom they interact the most within our Exploratory Data Analysis and Visualization class. Using this data, we were able to see the explore the patterns in the social interactions among our classmates.
-
+Data Science, like many other STEM fields, is overwhelmingly male. This begs the question: Is data science becoming an all-boys club? We asked survey participants to select at most five people with whom they interact the most within our Exploratory Data Analysis and Visualization class. Using this data, we were able to explore patterns in the social interactions among our classmates.
 
 #### Analysis
 
@@ -201,7 +200,6 @@ ggplot(conn_df, aes(Gender, fill = `Friend Gender`)) +
 
 
 This horizontal stacked bar chart shows that men and women more often listed people of their same gender when reflecting on their social circle. In a perfect world, these bars would be split directly down the middle.
-
 
 
 
