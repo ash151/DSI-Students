@@ -1,2 +1,5 @@
 # Conclusion
 
+In order to understand where we’re going, it’s best to first understand who we are. Overall, though admittedly not a shocking discovery, we learned that data scientists are human. We have preferences, likes, and dislikes and they show themselves in the topics we choose to study and in the people who we surround ourselves with. We found that these preferences can be informed by our gender, academic background, and even by the country where we studied before we came to Columbia. But what implications does this have for the future of the field of Data Science? 
+
+In writing this report, we simply want to remind our readers that (data) scientists are human. And we know that humans carry biases. Therefore, the need for formal policy development and critical bias evaluation in our algorithms should be just as important as efficiency and scalability. Additionally, data scientists should make a conscious effort to check our own prejudices and come to know the people that our work impacts. Simply taking these steps could make all the difference in the long-run.
