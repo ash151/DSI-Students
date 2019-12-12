@@ -232,8 +232,6 @@ The following applet is an interactive visualization of the social connections w
 
 
 
-
-
 ## Academic Background
 
 
@@ -242,7 +240,7 @@ The following applet is an interactive visualization of the social connections w
 
 #### Introduction:
 
-In this section, we explore the same question as in this last section; however, this time we look at the responses from the lense of academic background. Do students of a particular background tend to have similar interests with respect to industry and research interests?
+ In this section, we explore the same question as in this last section; however, this time we look at the responses from the lense of academic background. Do students of a particular background tend to have similar interests with respect to industry and research interests?
 
 #### Analysis: 
 
@@ -276,7 +274,8 @@ p7
 ```
 
 
-Across background big tech firms reigns supreme as the most popular industry for post-graduation. Perhaps, a majority of the students here are pursuing a Master’s degree so that they can break into the tech industry. However, curiously, survey participants with a Mathematics/Statistics background appear to have a higher affinity for the opportunities in the financial sector. Additionally, of those who responded, only people with a history in computing reported an interest in healthcare opportunities.
+Across background big tech firms reigns supreme as the most popular industry for post-graduation. Perhaps, a majority of the students chose to pursue a Master’s degree at Columbia so that they could break into the tech industry. Curiously, survey participants with a Mathematics/Statistics background appear to have a higher affinity for the opportunities in the financial sector. Additionally, of those who responded, only people with a history in computing reported an interest in healthcare opportunities.
+
 
 
 ##### Grouped Bar Chart (2):
@@ -314,7 +313,7 @@ p8 <- ggplot(data=temp_3, aes(x=Back, y=prop, fill=DS_Subject)) +
 p8
 ```
 
-As previously mentioned, the field of data science is primarily comprised of principles from computer science and mathematics/statistics. With this in mind, it comes as no surprise that the greater population from these majors prefers to study topics in Machine Learning. While, when we observe the responses from those whose academic background is outside of these areas, the research topic with the most draw is Natural Language Processing (NLP). 
+As previously mentioned, the field of data science is primarily comprised of principles from computer science and mathematics/statistics. With this in mind, it comes as no surprise that the greater population from these majors prefers to study topics in Machine Learning. While, when we observe the responses from those whose academic background is outside of these areas, the research topic with the most draw is Natural Language Processing. NLP has broad applications in many fields outside of tech, including policy, education, and linguistics. Therefore, maybe students coming from other disciplines simply want to learn data science principles so that they can return to their original field and apply data-centric techniques.
 
 
 ## Students w/ Previous Degree in US/International
