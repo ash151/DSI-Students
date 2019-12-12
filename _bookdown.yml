@@ -1,4 +1,5 @@
-book_filename:"finalproj"
+
+book_filename: "finalproj"
 output_dir: docs
 delete_merged_file: true
 edit: https://github.com/ash151/DSI-Students/edit/master/%s
