@@ -33,7 +33,7 @@ library(data.table)
 
 ## Gender
 
-In the following section, we explore the social patterns and interests of our cohort by gender. Though this analysis we hoped to answer a few questions, namely: Are men and women interested in the same industries and research areas? And how does gender influence the way that we congregate and collaborate within the Data Science Institute? Note, that survey respondees were given the option to identify as gender non-binary or “prefer not to say”. Because no participant selected these options, we were able to perform our gender analysis from the strict bipartition of male and female.
+In the following section, we explore the social patterns and interests of our cohort by gender. Though this analysis we hoped to answer a few questions, namely: Are men and women interested in the same industries and research areas? And how does gender influence the way that we congregate and collaborate within the Data Science Institute? Note that survey respondees were given the option to identify as gender non-binary or “prefer not to say”. Because no participant selected these options, we were able to perform our gender analysis from the strict bipartition of male and female.
 
 ### How are our interests related, if at all, to our gender?
 
@@ -41,8 +41,7 @@ In the following section, we explore the social patterns and interests of our co
 #### Introduction:
 
 
-In our analysis of the aspiring data scientists in our class by gender, we wanted to identify if any differences existed in our professional and academic interests. In our survey, we asked participants to select the industry they would most like to work in as well as the field they most want to study. Our first heatmap analyzes the relationship between industry and academic background faceted on gender. The second heatmap explores a similar question on one’s preference in a data science research topic.
-
+In our analysis of the aspiring data scientists in our class by gender, we wanted to identify if any differences existed in our professional and academic interests. In our survey, we asked participants to select the industry they would most like to work in as well as the field they most want to study. Our first heatmap analyzes the relationship between industry and academic background faceted on gender. The second heatmap explores a similar question about one’s preference in a data science research topic.
 
 #### Analysis
 
@@ -97,7 +96,7 @@ p9
 
 ```
 
-Irregardless of gender, big tech and finance, were the industries that garnered the most interest. However, we found that while more women showed want to get into consulting more men showed seemed more enthusiastic about start-ups. A priori, we figured that more men would be interested in sports analytics than women, but the results from our survey reflect an equivalence in interest. 
+Irregardless of gender, big tech and finance, were the industries that garnered the most interest. However, we found that while more women want to get into consulting, more men are interested in joining start-ups. A priori, we figured that more men would be interested in sports analytics than women, but the results from our survey reflect an equivalence in interest.
 
 ##### Heatmap of Research Interests: 
 
@@ -153,7 +152,6 @@ p10
 ```
 
 Overall we notice that the interest in various data science topics is uniformly distributed except in the case of Machine Learning and Data Analytics. We notice that Machine Learning is favored more by men while Data Analytics is favored more by women. This higher proportion for Data Analytics in surveyed women may be related to their higher interest in consulting (see previous heatmap).
-
 
 
 ### How does gender influence the way we socialize?
