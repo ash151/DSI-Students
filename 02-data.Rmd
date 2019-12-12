@@ -1,4 +1,7 @@
 # Data sources
+```{r, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
 
 Columbia University offers one of the few, most rigorous data science programs on the planet. Every year, an exclusive cohort of undergraduates and professionals from a diverse range of backgrounds (art history, mathematics, computer science, etc.) are offered admission to the {r} [Data Science Institute] {https://datascience.columbia.edu/}, where they will typically undergo three semesters of formal education before going on to join the workforce or a doctoral program and solve the world’s most pressing problems with data-driven solutions. With this group that was chosen with the utmost selectivity, we didn’t need to go too far to find a quality pool of future data scientists.
 

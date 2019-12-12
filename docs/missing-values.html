@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 4 Missing values | YOUR TITLE HERE</title>
-  <meta name="description" content="Chapter 4 Missing values | YOUR TITLE HERE" />
+  <title>Chapter 4 Missing values | The Data Scientists of the New Decade: Who are They and Where Are They Going?</title>
+  <meta name="description" content="Chapter 4 Missing values | The Data Scientists of the New Decade: Who are They and Where Are They Going?" />
   <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 4 Missing values | YOUR TITLE HERE" />
+  <meta property="og:title" content="Chapter 4 Missing values | The Data Scientists of the New Decade: Who are They and Where Are They Going?" />
   <meta property="og:type" content="book" />
   
   
@@ -16,15 +16,15 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 4 Missing values | YOUR TITLE HERE" />
+  <meta name="twitter:title" content="Chapter 4 Missing values | The Data Scientists of the New Decade: Who are They and Where Are They Going?" />
   
   
   
 
-<meta name="author" content="YOUR NAMES HERE" />
+<meta name="author" content="Shreyas Jadhav,Ashutosh Kanitkar,Patrick Stanton,Kevin Womack" />
 
 
-<meta name="date" content="2019-11-23" />
+<meta name="date" content="2019-12-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -50,6 +50,19 @@
 
 
 
+<script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
+<link href="libs/vis-4.20.1/vis.css" rel="stylesheet" />
+<script src="libs/vis-4.20.1/vis.min.js"></script>
+<script src="libs/visNetwork-binding-2.0.9/visNetwork.js"></script>
+<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="libs/Proj4Leaflet-1.0.1/proj4-compressed.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-2.0.3/leaflet.js"></script>
+<script src="libs/leaflet-providers-1.9.0/leaflet-providers_1.9.0.js"></script>
+<script src="libs/leaflet-providers-plugin-2.0.3/leaflet-providers-plugin.js"></script>
 
 
 
@@ -66,15 +79,33 @@
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">SHORT TITLE HERE</a></li>
+<li><a href="./">FutureDataScientists</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
 <li class="chapter" data-level="2" data-path="data-sources.html"><a href="data-sources.html"><i class="fa fa-check"></i><b>2</b> Data sources</a></li>
-<li class="chapter" data-level="3" data-path="data-transformation.html"><a href="data-transformation.html"><i class="fa fa-check"></i><b>3</b> Data transformation</a></li>
+<li class="chapter" data-level="3" data-path="data-transformation.html"><a href="data-transformation.html"><i class="fa fa-check"></i><b>3</b> Data transformation</a><ul>
+<li class="chapter" data-level="3.1" data-path="data-transformation.html"><a href="data-transformation.html#location-of-undergraduate-institution"><i class="fa fa-check"></i><b>3.1</b> Location of Undergraduate Institution</a></li>
+<li class="chapter" data-level="3.2" data-path="data-transformation.html"><a href="data-transformation.html#binning-academic-background"><i class="fa fa-check"></i><b>3.2</b> Binning Academic Background</a></li>
+<li class="chapter" data-level="3.3" data-path="data-transformation.html"><a href="data-transformation.html#we-bin-chillin"><i class="fa fa-check"></i><b>3.3</b> We “Bin” Chillin’</a></li>
+<li class="chapter" data-level="3.4" data-path="data-transformation.html"><a href="data-transformation.html#accessibility"><i class="fa fa-check"></i><b>3.4</b> Accessibility</a></li>
+</ul></li>
 <li class="chapter" data-level="4" data-path="missing-values.html"><a href="missing-values.html"><i class="fa fa-check"></i><b>4</b> Missing values</a></li>
-<li class="chapter" data-level="5" data-path="results.html"><a href="results.html"><i class="fa fa-check"></i><b>5</b> Results</a></li>
-<li class="chapter" data-level="6" data-path="interactive-component.html"><a href="interactive-component.html"><i class="fa fa-check"></i><b>6</b> Interactive component</a></li>
+<li class="chapter" data-level="5" data-path="results.html"><a href="results.html"><i class="fa fa-check"></i><b>5</b> Results</a><ul>
+<li class="chapter" data-level="5.1" data-path="results.html"><a href="results.html#gender"><i class="fa fa-check"></i><b>5.1</b> Gender</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="results.html"><a href="results.html#how-are-our-interests-related-if-at-all-to-our-gender"><i class="fa fa-check"></i><b>5.1.1</b> How are our interests related, if at all, to our gender?</a></li>
+<li class="chapter" data-level="5.1.2" data-path="results.html"><a href="results.html#how-does-gender-influence-the-way-we-socialize"><i class="fa fa-check"></i><b>5.1.2</b> How does gender influence the way we socialize?</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="results.html"><a href="results.html#academic-background"><i class="fa fa-check"></i><b>5.2</b> Academic Background</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="results.html"><a href="results.html#how-are-our-interests-related-if-at-all-to-our-academic-background"><i class="fa fa-check"></i><b>5.2.1</b> How are our interests related, if at all, to our academic background?</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="results.html"><a href="results.html#students-w-previous-degree-in-usinternational"><i class="fa fa-check"></i><b>5.3</b> Students w/ Previous Degree in US/International</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="results.html"><a href="results.html#how-does-the-location-of-ones-previous-study-affect-how-they-are-dealing-with-the-pressures-of-attending-graduate-school-in-nyc"><i class="fa fa-check"></i><b>5.3.1</b> How does the location of one’s previous study affect how they are dealing with the pressures of attending graduate school in NYC?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="interactive-component.html"><a href="interactive-component.html"><i class="fa fa-check"></i><b>6</b> Interactive component</a><ul>
+<li class="chapter" data-level="6.1" data-path="interactive-component.html"><a href="interactive-component.html#introduction-5"><i class="fa fa-check"></i><b>6.1</b> Introduction:</a></li>
+</ul></li>
 <li class="chapter" data-level="7" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>7</b> Conclusion</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -87,7 +118,7 @@
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">YOUR TITLE HERE</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">The Data Scientists of the New Decade: Who are They and Where Are They Going?</a>
           </h1>
         </div>
 
@@ -97,6 +128,8 @@
             <section class="normal" id="section-">
 <div id="missing-values" class="section level1">
 <h1><span class="header-section-number">Chapter 4</span> Missing values</h1>
+<p>From the beginning, when we came to the decision that we wanted to work with survey data, we worried about the potential lack of class participation. It was troubling to recognize that the validity of our results and insights were directly related to how many people we could rally to participate and fill out our Google Form. Fortunately, out of the 174 students that are enrolled in the EDAV course, we were able to recruit 123 unique and usable responses. This is roughly 71 percent of the entire class! With the participation rate this high, we saw no need to abandon our original idea and continued on with the project.</p>
+<p>While we simply have no survey data on the missing people, this is no way means that the missing classmates don’t play any role in our visualization process. In fact, in the case of the social network graph, even the missing values still contribute to the structure of the graph. Non-participating persons in the graph are simply grey nodes with no outgoing edges. However, these nodes may still have incoming edges and thus still help us understand how students cluster in our cohort.</p>
 
 </div>
             </section>
@@ -136,7 +169,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/YOUR GITHUB USERNAME/YOUR REPO NAME/edit/master/04-missing.Rmd",
+"link": "https://github.com/ash151/DSI-Students/edit/master/04-missing.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -144,7 +177,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/YOUR GITHUB USERNAME/YOUR REPO NAME/blob/master/04-missing.Rmd",
+"link": "https://github.com/ash151/DSI-Students/blob/master/04-missing.Rmd",
 "text": null
 },
 "download": null,
