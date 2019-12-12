@@ -11,7 +11,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Location of Undergraduate Institution
 
-Typically when formulating a survey, one of the first questions a surveyor almost thinks of automatically is that of nationality or ethnicity. However, with the line of questioning that we had in mind, Professor Robbins advised that this could be a slippery slope that may perpetuate certain racial stereotypes/biases. Therefore, we decided to slightly shift our grouping mechanism to students who had or hadn’t previously done their education in the United States. To do this, on the survey we asked participants for the name of the institution where they last studied before coming to Columbia. Then, with the aid of the Google Maps API, we used the raw text entered to scrape the latitude and longitude coordinates of their institution from the web and bipartition students into USA/NON-USA groups.
+Typically when formulating a survey, one of the first questions a surveyor automatically thinks of is that of nationality or ethnicity. However, with the line of questioning that we had in mind, Professor Robbins advised that this could be a slippery slope that may perpetuate certain racial stereotypes/biases. Therefore, we decided to slightly shift our grouping mechanism to students who had or hadn’t previously done their education in the United States. To do this, on the survey we asked participants for the name of the institution where they last studied before coming to Columbia. Then, with the aid of the Google Maps API, we used the raw text entered to scrape the latitude and longitude coordinates of their institution from the web and bipartition students into USA/NON-USA groups.
 
 ```{r message=FALSE}
 library(readr)
@@ -23,7 +23,7 @@ transform2[,2:6]
 
 ## Binning Academic Background
 
-As previously mentioned, Colubmia admits students from an exceptionally wide range of backgrounds. In fact, upon synthesizing all of the majors with the same type, we found that the DSI 2020 cohort represents a whopping 60 unique majors! While we believe that representing this diversity is important, we needed to find a more feasible way for grouping students that didn’t spread our data too thin. Being that Data Science is supremely comprised of principles from Mathematics/Statistics and Computer Science, it made the most sense to us to group students whose background includes these disciplines and to simply bin all the rest together. We found that by sectioning survey participants in this way, each of the three groups had a reasonable number of students. Lastly, with regard to students who listed a double major in Computer Science and Mathematics, Computer Science was always given priority.
+As previously mentioned, Colubmia admits students from an exceptionally wide range of backgrounds. In fact, upon synthesizing all of the majors with the same type, we found that the DSI 2020 cohort represents a whopping 60 unique majors! While we believe that representing this diversity is important, we needed to find a more feasible way for grouping students that didn’t spread our data too thin. Being that Data Science is supremely comprised of principles from Mathematics/Statistics and the Computer-related fields, it made the most sense to us to group students whose background includes these disciplines and to simply bin all the rest together. We found that by sectioning survey participants in this way, each of the three groups had a reasonable number of students. Lastly, with regard to students who listed a double major in Computer Science and Mathematics, Computer Science was always given priority.
 
 ```{r message=FALSE}
 transform1 <-fread("https://storage.googleapis.com/edavproject/transform1.csv")
@@ -33,15 +33,15 @@ transform1[,2:3]
 
 ## We “Bin” Chillin’
 
-When you ask someone for a rating on a scale of 1-10, what’s the real difference between and rating of 1 and a rating of 2? On this notion, it made sense when visualizing the data from the work-life balance question to group the responses in the following way:
+When you ask someone for a rating on a scale of 1-10, what’s the real difference between a rating of 1 and a rating of 2? On this notion, it made sense when visualizing the data from the work-life balance question to group the responses in the following way:
 
-1. Ratings of 1,2, and 3 were binned to the 'Chill the most' class. 
+1. Ratings of 1, 2, and 3 were binned to the 'Chill the most' class. 
 
 2. Ratings of 4 and 5 were binned to the 'Chill more, work less' class.  
 
 3. Ratings of 6 and 7 were binned to the 'Work more, chill less' class.
 
-4. Ratings of 8,9, and 10 were binned to the 'Work a lot' class.
+4. Ratings of 8, 9, and 10 were binned to the 'Work a lot' class.
 
 ```{r message=FALSE}
 transform3 <-fread("https://storage.googleapis.com/edavproject/transform3.csv")
@@ -50,4 +50,4 @@ transform3[,2:3]
 
 ## Accessibility
 
-When developing the visualizations that you will see in our “Results” section, color schemes were consciously selected that wouldn’t inhibit dissemination of this report to visually impaired readers.
+When developing the visualizations that you will see in our “Results” section, color schemes were consciously selected that wouldn’t inhibit the dissemination of this report to visually impaired readers.
