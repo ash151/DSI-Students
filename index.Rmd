@@ -7,4 +7,5 @@ site: bookdown::bookdown_site
 
 # Introduction
 
-As the field of data science continues to rapidly expand its overall relevance and importance in a myriad of diverse domain areas and societal dilemmas, it becomes increasingly crucial to understand who the data scientists of the future are. Where do they come from? What are they interested in? Could they be biased? Do they look like me? In an effort to explore some of these questions, we surveyed the class of students who will be graduating from the Data Science Master’s program at Columbia University in the year 2020 and developed an exploratory interactive profile, which we present below.  
+As the field of data science continues to rapidly expand its overall relevance and importance in a myriad of diverse domain areas and societal dilemmas, it becomes increasingly crucial to understand who the data scientists of the future are. Where do they come from? What are they interested in? Could they be biased? Do they look like me? In an effort to explore some of these questions, we surveyed the class of students who will be graduating from the Data Science Master’s program at Columbia University in the year 2020 and developed an exploratory and interactive profile, which we present in the following report.  
+
