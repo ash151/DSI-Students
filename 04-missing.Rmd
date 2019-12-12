@@ -1,1 +1,5 @@
 # Missing values
+
+From the beginning, when we came to the decision that we wanted to work with survey data, we worried about the potential lack of class participation. It was troubling to recognize that the validity of our results and insights were directly related to how many people we could rally to participate and fill out our Google Form. Fortunately, out of the 174 students that are enrolled in the EDAV course, we were able to recruit 123 unique and usable responses. This is roughly 71 percent of the entire class! With the participation rate this high, we saw no need to abandon our original idea and continued on with the project. 
+
+While we simply have no survey data on the missing people, this is no way means that the missing classmates don’t play any role in our visualization process. In fact, in the case of the social network graph, even the missing values still contribute to the structure of the graph. Non-participating persons in the graph are simply grey nodes with no outgoing edges. However, these nodes may still have incoming edges and thus still help us understand how students cluster in our cohort.
