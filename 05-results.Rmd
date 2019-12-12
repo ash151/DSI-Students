@@ -347,6 +347,7 @@ p1 <- ggplot(tell_2, aes(x = Is_USA, y = prop, fill = Back, label = prop)) +
 p1
 ```
 
+
 To provide some background information and frame the discussion and analysis in this section, the stacked bar chart above visualizes the breakdown of academic background of the surveyed DSI students grouped by the location of their prior institution. Notice that a greater proportion of students with a Mathematics/Statistics background came from an institution in the United States. With respect to the surveyed students who came from an international university, we observed a greater proportion of respondents with a computing background.
 
 
