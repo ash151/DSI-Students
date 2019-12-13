@@ -6,7 +6,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Introduction: 
 
-This interactive map visualizes the global diversity of the academic institutions that are represented in our program. When a point on the map is clicked, a popup will show the name of the university that is represented  by the point and the number of students that hail from it. Use the tools on the right sidebar to scrub over and zoom in on the map for the best views of the data.
+This interactive map visualizes the global diversity of the academic institutions that are represented in our program. When a point on the map is clicked, a popup will show the name of the university that is represented  by the point and the number of students that hail from it. Use the buttons in the upper-left corner to zoom in on the map for the best views of the points. Drag and scrub over the map with your mouse to move the picture up, down, left, and right.
 
 ```{r message=FALSE}
 library(readr)
