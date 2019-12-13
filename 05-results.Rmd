@@ -33,7 +33,7 @@ library(data.table)
 
 ## Gender
 
-In the following section, we explore the social patterns and interests of our cohort by gender. Though this analysis we hoped to answer a few questions, namely: Are men and women interested in the same industries and research areas? And how does gender influence the way that we congregate and collaborate within the Data Science Institute? Note that survey respondees were given the option to identify as gender non-binary or “prefer not to say”. Because no participant selected these options, we were able to perform our gender analysis from the strict bipartition of male and female.
+In the following section, we explore the social patterns and interests of our cohort by gender. Through this analysis we hoped to answer a few questions, namely: Are men and women interested in the same industries and research areas? And how does gender influence the way that we congregate and collaborate within the Data Science Institute? Note that survey respondents were given the option to identify as gender non-binary or “prefer not to say”. Because no participant selected these options, we were able to perform our gender analysis from the strict bipartition of male and female.
 
 ### How are our interests related, if at all, to our gender?
 
@@ -41,12 +41,12 @@ In the following section, we explore the social patterns and interests of our co
 #### Introduction:
 
 
-In our analysis of the aspiring data scientists in our class by gender, we wanted to identify if any differences existed in our professional and academic interests. In our survey, we asked participants to select the industry they would most like to work in as well as the field they most want to study. Our first heatmap analyzes the relationship between industry and academic background faceted on gender. The second heatmap explores a similar question about one’s preference in a data science research topic.
+In our analysis of the aspiring data scientists in our class by gender, we wanted to identify if any differences existed in our professional and academic interests. In our survey, we asked participants to select the industry that they would most like to work in as well as the topic that they would most want to learn more about. Our first heatmap analyzes the relationship between industry preference and gender. The second heatmap explores a similar question about one’s preference in a data science research topic.
 
 #### Analysis
 
 
-##### Heatmap of Industries:
+##### Gendered Heatmap by Industry:
 
 ```{r message=FALSE}
 DSI1 <- fread("https://storage.googleapis.com/edavproject/dsi2.csv")
@@ -82,8 +82,8 @@ p9 <- ggplot(mydata_new_1, aes(x = Sex , y = Industry)) +
                  color = "white", size = 3) +
       scale_color_brewer(palette = "Blues", direction = -1) +
       # formatting
-    labs(title = "How does sex affect \n choice of industry?") +
-    xlab("Sex") + ylab("Choice of Industry") + 
+    labs(title = "How does gender affect \n choice of industry?") +
+    xlab("Gender") + ylab("Choice of Industry") + 
       theme(plot.title = element_text(face = "bold")) +
       theme(plot.subtitle = element_text(face = "bold", color = "grey35")) +
       theme(plot.caption = element_text(color = "grey68"))+ 
@@ -96,9 +96,9 @@ p9
 
 ```
 
-Irregardless of gender, big tech and finance, were the industries that garnered the most interest. However, we found that while more women want to get into consulting, more men are interested in joining start-ups. A priori, we figured that more men would be interested in sports analytics than women, but the results from our survey reflect an equivalence in interest.
+Irregardless of gender, big tech and finance were the industries that garnered the most interest. However, we found that while more women want to get into consulting, more men are interested in joining start-ups. A priori, we also figured that more men would be interested in sports analytics than women, but the results from our survey reflect an equivalence in interest.
 
-##### Heatmap of Research Interests: 
+##### Gendered Heatmap by Research Topics: 
 
 ```{r message=FALSE} 
 
@@ -139,8 +139,8 @@ p10 <- ggplot(mydata_new_2, aes(x = Sex , y = DS_Subject)) +
       geom_text(aes(label = round(prop, 2)), 
                  color = "white", size=3) +
       scale_color_brewer(palette = "Blues", direction = -1) +
-      labs(title = "How does sex affect \n favourite research topic?") +
-    xlab("Sex") + ylab("Favourite research topics")+ 
+      labs(title = "How does Gender affect \n favourite research topic?") +
+    xlab("Gender") + ylab("Favourite research topics")+ 
              
       theme(plot.title = element_text(face = "bold")) +
       theme(plot.subtitle = element_text(face = "bold", color = "grey35")) +
@@ -151,7 +151,7 @@ p10 <- ggplot(mydata_new_2, aes(x = Sex , y = DS_Subject)) +
 p10
 ```
 
-Overall we notice that the interest in various data science topics is uniformly distributed except in the case of Machine Learning and Data Analytics. We notice that Machine Learning is favored more by men while Data Analytics is favored more by women. This higher proportion for Data Analytics in surveyed women may be related to their higher interest in consulting (see previous heatmap).
+Overall, we notice that the interest in various data science topics is uniformly distributed except in the case of Machine Learning and Data Analytics. We notice that Machine Learning is favored more by men while Data Analytics is favored more by women. This higher proportion for Data Analytics in surveyed women may be related to their higher interest in consulting (see previous heatmap).
 
 
 ### How does gender influence the way we socialize?
@@ -164,7 +164,7 @@ Data Science, like many other STEM fields, is overwhelmingly male. This begs the
 #### Analysis
 
 
-##### Horizontal Stacked Bar Chart:
+##### How often do we pick friends of the same gender?
 
 ```{r message=FALSE}
 DSI4 <-fread("https://storage.googleapis.com/edavproject/dsi.csv")
@@ -205,11 +205,10 @@ This horizontal stacked bar chart shows that men and women more often listed peo
 
 ##### Social Network Graph
 
+The following applet is an interactive visualization of the social connections within our Exploratory Data Analysis and Visualization class. Each node represents a person within our class. Men are light blue and women are pink. The gray nodes are people who did not fill out the survey. A directed edge from node A to node B represents person A listing person B as social connection in their survey. The nodes that are disconnected from the large network were people who did not list any connections. By moving the cursor over a node, the user can see the country where the person completed their undergraduate education, as well as professional and academic interests. In addition, the user is able to drag nodes to get a better sense of the network structure. Be patient! The network takes some time to load.
+
 
 ```{r message=FALSE}
-
-
-
 
  nodes <- rbind(blank, fill)
  nodes$label <- ""
@@ -228,10 +227,6 @@ This horizontal stacked bar chart shows that men and women more often listed peo
 ```
 
 
-The following applet is an interactive visualization of the social connections within our Exploratory Data Analysis and Visualization class. Each node represents a person within our class. Men are light blue and women are pink. The gray nodes are people who did not fill out the survey. A directed edge from node A to node B represents person A listing person B as social connection in their survey. The nodes that are disconnected from the large network were people who did not list any connections. By moving the cursor over a node, the user can see the country where the person completed their undergraduate education, as well as professional and academic interests. In addition, the user is able to drag nodes to get a better sense of the network structure. Be patient! The network takes some time to load.
-
-
-
 ## Academic Background
 
 
@@ -245,7 +240,7 @@ The following applet is an interactive visualization of the social connections w
 #### Analysis: 
 
 
-##### Grouped Bar Chart (1):
+##### How does academic background affect our choice of industry?
 
 ```{r message=FALSE}
 
@@ -274,11 +269,11 @@ p7
 ```
 
 
-Across background big tech firms reigns supreme as the most popular industry for post-graduation. Perhaps, a majority of the students chose to pursue a Master’s degree at Columbia so that they could break into the tech industry. Curiously, survey participants with a Mathematics/Statistics background appear to have a higher affinity for the opportunities in the financial sector. Additionally, of those who responded, only people with a history in computing reported an interest in healthcare opportunities.
+Across academic backgrounds, big tech firms reign supreme as the most popular industry for post-graduation. Perhaps, a majority of theses students chose to pursue a Master’s degree at Columbia so that they could break into the tech industry. Curiously, survey participants with a Mathematics/Statistics background appear to have a higher affinity for the opportunities in the financial sector. Additionally, of those who responded, only people with a history in a computer-related fields reported an interest in healthcare opportunities.
 
 
 
-##### Grouped Bar Chart (2):
+##### How does academic background affect our choice of research topics?
 
 ```{r message=FALSE}
 
@@ -313,10 +308,10 @@ p8 <- ggplot(data=temp_3, aes(x=Back, y=prop, fill=DS_Subject)) +
 p8
 ```
 
-As previously mentioned, the field of data science is primarily comprised of principles from computer science and mathematics/statistics. With this in mind, it comes as no surprise that the greater population from these majors prefers to study topics in Machine Learning. While, when we observe the responses from those whose academic background is outside of these areas, the research topic with the most draw is Natural Language Processing. NLP has broad applications in many fields outside of tech, including policy, education, and linguistics. Therefore, maybe students coming from other disciplines simply want to learn data science principles so that they can return to their original field and apply data-centric techniques.
+As previously mentioned, the field of data science is primarily comprised of principles from computing fields and mathematics/statistics. With this in mind, it comes as no surprise that the greater population from these majors prefers to study topics in Machine Learning. While, when we observe the responses from those whose academic background is outside of these areas, the research topic with the most draw is Natural Language Processing. NLP has broad applications in many fields outside of tech, including policy, education, and linguistics. Therefore, maybe students coming from other disciplines simply want to learn data science principles so that they can return to their original field and apply data-centric techniques.
 
 
-## Students w/ Previous Degree in US/International
+## Country of Previous Education
 
 
 ### How does the location of one’s previous study affect how they are dealing with the pressures of attending graduate school in NYC?
@@ -324,9 +319,9 @@ As previously mentioned, the field of data science is primarily comprised of pri
 
 #### Introduction: 
 
-Adjusting to life in New York City can be difficult for anyone. But imagine having to make that adjustment while matriculating through a graduate-level curriculum at an Ivy League institution! With this in mind, we included a couple likert questions in our survey to gauge how well students were adjusting. How do students who have previously studied in the United States fair alongside their international peers with regard to life in the city and maintaining a healthy work-life balance?
+Adjusting to life in New York City can be difficult for anyone. But imagine having to make that adjustment while matriculating through a graduate-level curriculum at an Ivy League institution! Wanting to study attitudes within our cohort, we included a couple of likert questions in our survey in order to gauge how well students were adjusting. How do students who have previously studied in the United States fair alongside their international peers with regard to life in the city and maintaining a healthy work-life balance?
 
-##### Stacked Bar Chart (Background breakdown by prior institution):
+##### Background breakdown by prior institution location:
 
 ```{r}
 
@@ -348,7 +343,7 @@ p1
 ```
 
 
-To provide some background information and frame the discussion and analysis in this section, the stacked bar chart above visualizes the breakdown of academic background of the surveyed DSI students grouped by the location of their prior institution. Notice that a greater proportion of students with a Mathematics/Statistics background came from an institution in the United States. With respect to the surveyed students who came from an international university, we observed a greater proportion of respondents with a computing background.
+To provide some background information and frame the discussion and analysis in this section, the stacked bar chart above visualizes the breakdown of academic background of the surveyed DSI students, grouped by the location of their prior institution. Notice that a greater proportion of students with a Mathematics/Statistics background came from an institution in the United States. In surveyed students who came from an international university, we observed a greater proportion of respondents with a computing background.
 
 
 
@@ -383,7 +378,6 @@ like_2 <- dcast(tell1,Measure1 ~ UnderSt)
 
 
 like_1$Measure <- fct_relevel(like_1$Measure, "USA", "NON-USA") 
-levels(like_1$Measure)
 
 
 
@@ -393,7 +387,7 @@ p4<- HH::likert(Measure ~ "Strongly Disagree" + "Disagree" + "Neutral" + "Agree"
            ReferenceZero = 3, 
            positive.order = TRUE,
            xlim=c(-40,-20,0,20,40,60,80,100),
-           main = "Responses to :'I love New York'",
+           main = "'I love New York'",
            xlab = "Percentage of students",
            ylab = "Prev. Degree Country"
 )
@@ -420,7 +414,7 @@ p6 <- ggplot(DSI1) +
 p6   
 ```
 
-We found overall that students who have done their previous education in the US are “chillin’” somewhat more than students coming from overseas. Why would this be? Perhaps, domestic students are more accustomed to the culture of American institutions. Another possible explanation for this disparity could be that credit-hour and work-study requirements are stricter for students with previous degress in international institutes.
+We found overall that students who have done their previous education in the US are “chillin’” somewhat more than students coming from overseas. Why would this be? Perhaps, domestic students are more accustomed to the culture of American institutions. Another possible explanation for this disparity could be that credit-hour and work-study requirements are stricter for students with previous degress from international universities.
 
 
 
