@@ -99,7 +99,7 @@
 <li class="chapter" data-level="5.2" data-path="results.html"><a href="results.html#academic-background"><i class="fa fa-check"></i><b>5.2</b> Academic Background</a><ul>
 <li class="chapter" data-level="5.2.1" data-path="results.html"><a href="results.html#how-are-our-interests-related-if-at-all-to-our-academic-background"><i class="fa fa-check"></i><b>5.2.1</b> How are our interests related, if at all, to our academic background?</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="results.html"><a href="results.html#students-w-previous-degree-in-usinternational"><i class="fa fa-check"></i><b>5.3</b> Students w/ Previous Degree in US/International</a><ul>
+<li class="chapter" data-level="5.3" data-path="results.html"><a href="results.html#country-of-previous-education"><i class="fa fa-check"></i><b>5.3</b> Country of Previous Education</a><ul>
 <li class="chapter" data-level="5.3.1" data-path="results.html"><a href="results.html#how-does-the-location-of-ones-previous-study-affect-how-they-are-dealing-with-the-pressures-of-attending-graduate-school-in-nyc"><i class="fa fa-check"></i><b>5.3.1</b> How does the location of one’s previous study affect how they are dealing with the pressures of attending graduate school in NYC?</a></li>
 </ul></li>
 </ul></li>
@@ -132,7 +132,7 @@
 <p>Though, as expected, the bulk of the heavy lifting with regard to data cleaning and transformation came with the open-ended survey response questions. How would we transform or “bin” the raw text of survey answers in some uniform manner so that we could visualize them without compromising the integrity of their meaning?</p>
 <div id="location-of-undergraduate-institution" class="section level2">
 <h2><span class="header-section-number">3.1</span> Location of Undergraduate Institution</h2>
-<p>Typically when formulating a survey, one of the first questions a surveyor almost thinks of automatically is that of nationality or ethnicity. However, with the line of questioning that we had in mind, Professor Robbins advised that this could be a slippery slope that may perpetuate certain racial stereotypes/biases. Therefore, we decided to slightly shift our grouping mechanism to students who had or hadn’t previously done their education in the United States. To do this, on the survey we asked participants for the name of the institution where they last studied before coming to Columbia. Then, with the aid of the Google Maps API, we used the raw text entered to scrape the latitude and longitude coordinates of their institution from the web and bipartition students into USA/NON-USA groups.</p>
+<p>Typically when formulating a survey, one of the first questions a surveyor automatically thinks of is that of nationality or ethnicity. However, with the line of questioning that we had in mind, Professor Robbins advised that this could be a slippery slope that may perpetuate certain racial stereotypes/biases. Therefore, we decided to slightly shift our grouping mechanism to students who had or hadn’t previously done their education in the United States. To do this, on the survey we asked participants for the name of the institution where they last studied before coming to Columbia. Then, with the aid of the Google Maps API, we used the raw text entered to scrape the latitude and longitude coordinates of their institution from the web and bipartition students into USA/NON-USA groups.</p>
 <pre><code>##                                Institute latitude  longitude Country_Code
 ## 1:                                   NYU 40.72951  -73.99646          USA
 ## 2:                   University of Delhi 28.58425   77.16383        India
@@ -148,7 +148,7 @@
 </div>
 <div id="binning-academic-background" class="section level2">
 <h2><span class="header-section-number">3.2</span> Binning Academic Background</h2>
-<p>As previously mentioned, Colubmia admits students from an exceptionally wide range of backgrounds. In fact, upon synthesizing all of the majors with the same type, we found that the DSI 2020 cohort represents a whopping 60 unique majors! While we believe that representing this diversity is important, we needed to find a more feasible way for grouping students that didn’t spread our data too thin. Being that Data Science is supremely comprised of principles from Mathematics/Statistics and Computer Science, it made the most sense to us to group students whose background includes these disciplines and to simply bin all the rest together. We found that by sectioning survey participants in this way, each of the three groups had a reasonable number of students. Lastly, with regard to students who listed a double major in Computer Science and Mathematics, Computer Science was always given priority.</p>
+<p>As previously mentioned, Colubmia admits students from an exceptionally wide range of backgrounds. In fact, upon synthesizing all of the majors with the same type, we found that the DSI 2020 cohort represents a whopping 60 unique majors! While we believe that representing this diversity is important, we needed to find a more feasible way for grouping students that didn’t spread our data too thin. Being that Data Science is supremely comprised of principles from Mathematics/Statistics and the Computer-related fields, it made the most sense to us to group students whose background includes these disciplines and to simply bin all the rest together. We found that by sectioning survey participants in this way, each of the three groups had a reasonable number of students. Lastly, with regard to students who listed a double major in Computer Science and Mathematics, Computer Science was always given priority.</p>
 <pre><code>##                                           V2              V3
 ## 1:                                Background            Back
 ## 2:                              data science        Computer
@@ -159,12 +159,12 @@
 </div>
 <div id="we-bin-chillin" class="section level2">
 <h2><span class="header-section-number">3.3</span> We “Bin” Chillin’</h2>
-<p>When you ask someone for a rating on a scale of 1-10, what’s the real difference between and rating of 1 and a rating of 2? On this notion, it made sense when visualizing the data from the work-life balance question to group the responses in the following way:</p>
+<p>When you ask someone for a rating on a scale of 1-10, what’s the real difference between a rating of 1 and a rating of 2? On this notion, it made sense when visualizing the data from the work-life balance question to group the responses in the following way:</p>
 <ol style="list-style-type: decimal">
-<li><p>Ratings of 1,2, and 3 were binned to the ‘Chill the most’ class.</p></li>
+<li><p>Ratings of 1, 2, and 3 were binned to the ‘Chill the most’ class.</p></li>
 <li><p>Ratings of 4 and 5 were binned to the ‘Chill more, work less’ class.</p></li>
 <li><p>Ratings of 6 and 7 were binned to the ‘Work more, chill less’ class.</p></li>
-<li><p>Ratings of 8,9, and 10 were binned to the ‘Work a lot’ class.</p></li>
+<li><p>Ratings of 8, 9, and 10 were binned to the ‘Work a lot’ class.</p></li>
 </ol>
 <pre><code>##    Work Rate                  Bins
 ## 1:         1        Chill the most
@@ -175,7 +175,7 @@
 </div>
 <div id="accessibility" class="section level2">
 <h2><span class="header-section-number">3.4</span> Accessibility</h2>
-<p>When developing the visualizations that you will see in our “Results” section, color schemes were consciously selected that wouldn’t inhibit dissemination of this report to visually impaired readers.</p>
+<p>When developing the visualizations that you will see in our “Results” section, color schemes were consciously selected that wouldn’t inhibit the dissemination of this report to color vision deficient readers.</p>
 
 </div>
 </div>
