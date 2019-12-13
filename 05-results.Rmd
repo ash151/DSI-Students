@@ -199,7 +199,7 @@ ggplot(conn_df, aes(Gender, fill = `Friend Gender`)) +
 ```
 
 
-This horizontal stacked bar chart shows that men and women more often listed people of their same gender when reflecting on their social circle. In a perfect world, these bars would be split directly down the middle.
+This horizontal stacked bar chart shows that men and women more often listed people of their same gender when reflecting on their social circle. In a perfect world, these bars would be split directly down the middle. However, according to our data, intragender connections represent 87% of relationships for both men and women. 
 
 
 
